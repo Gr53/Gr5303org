@@ -1,4 +1,4 @@
-'Rosa
+'Rosa Vende mas cuadranteSeguro
 create database CuadranteSeguro;
 'Base de datos para reto Calles sin delincuentes'
 use CuadranteSeguro;

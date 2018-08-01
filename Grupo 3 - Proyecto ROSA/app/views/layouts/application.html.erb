@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Red Operativa de Seguridad Aplicada</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="assets/inicio_sesion.css">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    
+    <%- if usuario_signed_in? %>
+      <%= link_to 'Salir', destroy_user_session_path,method: :delete %>
+    <%else%>
+      <%= link_to 'Iniciar sesión', new_usuario_session_path%>
+      <%= link_to 'Registro', new_usuario_registration_path%>
+    <%end %>
+
+    <%= yield %>
+  </body>
+</html>

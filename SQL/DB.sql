@@ -3,19 +3,19 @@ create database CuadranteSeguro;
 'Base de datos para reto Calles sin delincuentes'
 use CuadranteSeguro;
 
-create table CIUDAD(
-idciudad integer,
-nombre varchar(60) not null,
+create table City(
+id integer,
+name varchar(60) not null,
 coddane varchar(30) not null,
-primary key (idciudad)
+primary key (id)
 );
 
-create table LOCALIDAD(
-idlocalidad integer,
-idciudad integer not null,
-nombre varchar(60) not null,
-primary key(idlocalidad),
-constraint LOCALIDAD_idciudad foreign key (idciudad) references CIUDAD(idciudad)
+create table Locality (
+id integer,
+citys_id integer not null,
+name varchar(60) not null,
+primary key(id),
+constraint LOCALIDAD_idciudad foreign key (idciudad) references CIUDAD(id)
 );
 
 create table BARRIO(
@@ -60,8 +60,6 @@ clave  varchar(20) not null,
 idredapoyo integer,
 activo integer,
 bloqueado integer,
-fechacreacion date not null,
-fechaactlz date,
 foto bytea,
 primary key(userid),
 constraint USUARIO_idtipoid foreign key (idtipoid) references TIPOIDENTIFICACION(idtipoid),

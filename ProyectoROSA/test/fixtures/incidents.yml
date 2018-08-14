@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  users: one
+  latitude: MyString
+  longitude: MyString
+  fecha: 2018-08-14 08:36:35
+  incidenttypes: one
+  pmuerte: 1
+  nambulancia: 1
+  npolicia: 1
+  prioridad: 1
+  riesgo: 1
+  descripcion: MyString
+  gnbtnpanico: 1
+  imagen: 
+
+two:
+  users: two
+  latitude: MyString
+  longitude: MyString
+  fecha: 2018-08-14 08:36:35
+  incidenttypes: two
+  pmuerte: 1
+  nambulancia: 1
+  npolicia: 1
+  prioridad: 1
+  riesgo: 1
+  descripcion: MyString
+  gnbtnpanico: 1
+  imagen: 

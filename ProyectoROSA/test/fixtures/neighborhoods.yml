@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  localitys: one
+  name: MyString
+
+two:
+  localitys: two
+  name: MyString

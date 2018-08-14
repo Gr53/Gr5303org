@@ -1,0 +1,15 @@
+rails g scaffold City name:string coddane:string
+rails g scaffold Locality citys:references name:string
+rails g scaffold Neighborhood localitys:references name:string
+rails g scaffold Net neighborhoods:references name:string
+rails g scaffold SupportNet nets:references name:string
+rails g scaffold IdentificationType identificationtype:string
+rails g scaffold User names:string surnames:string identificationtypes:references identificationnumber:string cellphonenumber:string username:string password:string password_digest supportnets:references active:integer locked:integer photo:binary 
+rails g scaffold RiskLevel level
+rails g scaffold IncidentType name risklevels:references
+rails g scaffold Incident users:references latitude longitude fecha:datetime incidenttypes:references pmuerte:integer nambulancia:integer npolicia:integer prioridad:integer riesgo:integer descripcion gnbtnpanico:integer imagen:binary 
+
+
+
+---Eliminar scaffold
+rails destroy scaffold xxxxxx

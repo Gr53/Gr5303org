@@ -1,0 +1,2 @@
+class RiskLevel < ApplicationRecord
+end

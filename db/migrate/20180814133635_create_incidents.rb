@@ -5,7 +5,7 @@ class CreateIncidents < ActiveRecord::Migration[5.2]
       t.string :latitude
       t.string :longitude
       t.datetime :fecha
-      t.references :incidenttypes, foreign_key: true
+      t.references :incident_types, foreign_key: true
       t.integer :pmuerte
       t.integer :nambulancia
       t.integer :npolicia

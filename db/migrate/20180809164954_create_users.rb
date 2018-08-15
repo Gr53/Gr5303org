@@ -3,13 +3,13 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
       t.string :names
       t.string :surnames
-      t.references :identificationtypes, foreign_key: true
+      t.references :identification_types, foreign_key: true
       t.string :identificationnumber
       t.string :cellphonenumber
       t.string :username
       t.string :password
       t.string :password_digest
-      t.references :supportnets, foreign_key: true
+      t.references :support_nets, foreign_key: true
       t.integer :active
       t.integer :locked
       t.binary :photo

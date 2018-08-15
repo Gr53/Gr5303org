@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_08_14_133635) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.string "coddane"
@@ -27,18 +30,18 @@ ActiveRecord::Schema.define(version: 2018_08_14_133635) do
 
   create_table "incident_types", force: :cascade do |t|
     t.string "name"
-    t.integer "risklevels_id"
+    t.bigint "risk_levels_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["risklevels_id"], name: "index_incident_types_on_risklevels_id"
+    t.index ["risk_levels_id"], name: "index_incident_types_on_risk_levels_id"
   end
 
   create_table "incidents", force: :cascade do |t|
-    t.integer "users_id"
+    t.bigint "users_id"
     t.string "latitude"
     t.string "longitude"
     t.datetime "fecha"
-    t.integer "incidenttypes_id"
+    t.bigint "incident_types_id"
     t.integer "pmuerte"
     t.integer "nambulancia"
     t.integer "npolicia"
@@ -49,28 +52,28 @@ ActiveRecord::Schema.define(version: 2018_08_14_133635) do
     t.binary "imagen"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["incidenttypes_id"], name: "index_incidents_on_incidenttypes_id"
+    t.index ["incident_types_id"], name: "index_incidents_on_incident_types_id"
     t.index ["users_id"], name: "index_incidents_on_users_id"
   end
 
   create_table "localities", force: :cascade do |t|
-    t.integer "citys_id"
+    t.bigint "cities_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["citys_id"], name: "index_localities_on_citys_id"
+    t.index ["cities_id"], name: "index_localities_on_cities_id"
   end
 
   create_table "neighborhoods", force: :cascade do |t|
-    t.integer "localitys_id"
+    t.bigint "localities_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["localitys_id"], name: "index_neighborhoods_on_localitys_id"
+    t.index ["localities_id"], name: "index_neighborhoods_on_localities_id"
   end
 
   create_table "nets", force: :cascade do |t|
-    t.integer "neighborhoods_id"
+    t.bigint "neighborhoods_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -84,7 +87,7 @@ ActiveRecord::Schema.define(version: 2018_08_14_133635) do
   end
 
   create_table "support_nets", force: :cascade do |t|
-    t.integer "nets_id"
+    t.bigint "nets_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -94,20 +97,29 @@ ActiveRecord::Schema.define(version: 2018_08_14_133635) do
   create_table "users", force: :cascade do |t|
     t.string "names"
     t.string "surnames"
-    t.integer "identificationtypes_id"
+    t.bigint "identification_types_id"
     t.string "identificationnumber"
     t.string "cellphonenumber"
     t.string "username"
     t.string "password"
     t.string "password_digest"
-    t.integer "supportnets_id"
+    t.bigint "support_nets_id"
     t.integer "active"
     t.integer "locked"
     t.binary "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["identificationtypes_id"], name: "index_users_on_identificationtypes_id"
-    t.index ["supportnets_id"], name: "index_users_on_supportnets_id"
+    t.index ["identification_types_id"], name: "index_users_on_identification_types_id"
+    t.index ["support_nets_id"], name: "index_users_on_support_nets_id"
   end
 
+  add_foreign_key "incident_types", "risk_levels", column: "risk_levels_id"
+  add_foreign_key "incidents", "incident_types", column: "incident_types_id"
+  add_foreign_key "incidents", "users", column: "users_id"
+  add_foreign_key "localities", "cities", column: "cities_id"
+  add_foreign_key "neighborhoods", "localities", column: "localities_id"
+  add_foreign_key "nets", "neighborhoods", column: "neighborhoods_id"
+  add_foreign_key "support_nets", "nets", column: "nets_id"
+  add_foreign_key "users", "identification_types", column: "identification_types_id"
+  add_foreign_key "users", "support_nets", column: "support_nets_id"
 end

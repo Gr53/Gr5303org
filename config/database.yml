@@ -33,15 +33,14 @@ default: &default
   pool: 5
 
  
-  username: postgres
-  password: 
+  username: rnskoalyasqcxj
+  password: e582aca13274232206d19fd814b3f7649e9aac8156c99ed80976009b1621162f
 
 development:
   <<: *default
-  database: ROSA
-  #host: ec2-54-163-246-5.compute-1.amazonaws.com
+  database: d319av8a811ecg
+  host: ec2-54-163-246-5.compute-1.amazonaws.com
   #port: 5432
-  #database: d319av8a811ecg
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

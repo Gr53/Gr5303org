@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_16_144221) do
+ActiveRecord::Schema.define(version: 2018_08_16_154110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,14 @@ ActiveRecord::Schema.define(version: 2018_08_16_144221) do
     t.index ["cities_id"], name: "index_localities_on_cities_id"
   end
 
+  create_table "n_nets", force: :cascade do |t|
+    t.bigint "neighborhoods_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["neighborhoods_id"], name: "index_n_nets_on_neighborhoods_id"
+  end
+
   create_table "neighborhoods", force: :cascade do |t|
     t.bigint "localities_id"
     t.string "name"
@@ -117,6 +125,7 @@ ActiveRecord::Schema.define(version: 2018_08_16_144221) do
   add_foreign_key "incidents", "incident_types", column: "incident_types_id"
   add_foreign_key "incidents", "users", column: "users_id"
   add_foreign_key "kiddles", "neighborhoods", column: "neighborhoods_id"
+  add_foreign_key "n_nets", "neighborhoods", column: "neighborhoods_id"
   add_foreign_key "neighborhoods", "localities", column: "localities_id"
   add_foreign_key "users", "identification_types", column: "identification_types_id"
   add_foreign_key "users", "support_nets", column: "support_nets_id"

@@ -14,13 +14,18 @@ insert into cities (name,coddane,created_at,updated_at) values ('Bogotá','11001
 insert into cities (name,coddane,created_at,updated_at) values ('Medellín','05001',current_date,current_date);
 commit;
 
-create table Localities(
+create table localities(
 id integer,
-citys_id integer not null,
+cities_id integer not null,
 name varchar(60) not null,
 primary key(id),
 constraint LOCALIDAD_idciudad foreign key (idciudad) references CIUDAD(id)
 );
+
+insert into localities (cities_id,name,created_at,updated_at) values (3,'Fontibón',current_date,current_date);
+insert into localities (cities_id,name,created_at,updated_at) values (3,'Engativá',current_date,current_date);
+insert into localities (cities_id,name,created_at,updated_at) values (3,'Suba',current_date,current_date);
+commit;
 
 create table BARRIO(
 idbarrio integer,

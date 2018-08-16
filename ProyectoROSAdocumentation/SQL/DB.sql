@@ -30,7 +30,7 @@ primary key(idbarrio),
 constraint BARRIO_idlocalidad foreign key (idlocalidad) references LOCALIDAD(idlocalidad)
 );
 
-create table RED(
+create table kiddle(
 idred integer,
 idbarrio integer not null,
 nombre varchar(60) not null,

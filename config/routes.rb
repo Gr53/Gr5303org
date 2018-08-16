@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :nets
+  resources :kiddles
   resources :cities
   resources :incidents
   resources :incident_types

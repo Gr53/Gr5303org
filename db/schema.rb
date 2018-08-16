@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_16_142828) do
+ActiveRecord::Schema.define(version: 2018_08_16_144221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,14 @@ ActiveRecord::Schema.define(version: 2018_08_16_142828) do
     t.index ["users_id"], name: "index_incidents_on_users_id"
   end
 
+  create_table "kiddles", force: :cascade do |t|
+    t.bigint "neighborhoods_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["neighborhoods_id"], name: "index_kiddles_on_neighborhoods_id"
+  end
+
   create_table "localities", force: :cascade do |t|
     t.bigint "cities_id"
     t.string "name"
@@ -70,14 +78,6 @@ ActiveRecord::Schema.define(version: 2018_08_16_142828) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["localities_id"], name: "index_neighborhoods_on_localities_id"
-  end
-
-  create_table "nets", force: :cascade do |t|
-    t.bigint "neighborhoods_id"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["neighborhoods_id"], name: "index_nets_on_neighborhoods_id"
   end
 
   create_table "risk_levels", force: :cascade do |t|
@@ -116,8 +116,8 @@ ActiveRecord::Schema.define(version: 2018_08_16_142828) do
   add_foreign_key "incident_types", "risk_levels", column: "risk_levels_id"
   add_foreign_key "incidents", "incident_types", column: "incident_types_id"
   add_foreign_key "incidents", "users", column: "users_id"
+  add_foreign_key "kiddles", "neighborhoods", column: "neighborhoods_id"
   add_foreign_key "neighborhoods", "localities", column: "localities_id"
-  add_foreign_key "nets", "neighborhoods", column: "neighborhoods_id"
   add_foreign_key "users", "identification_types", column: "identification_types_id"
   add_foreign_key "users", "support_nets", column: "support_nets_id"
 end

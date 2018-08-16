@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class NetTest < ActiveSupport::TestCase
+class KiddleTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

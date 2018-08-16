@@ -1,7 +1,7 @@
 rails g scaffold City name coddane
 rails g scaffold Locality cities:references name:string
 rails g scaffold Neighborhood localities:references name:string
-rails g scaffold Net neighborhoods:references name
+rails g scaffold Kiddle neighborhoods:references name
 rails g scaffold SupportNet nets:references name:string
 rails g scaffold IdentificationType identificationtype:string
 rails g scaffold User names:string surnames:string identification_types:references identificationnumber:string cellphonenumber:string username:string password:string password_digest support_nets:references active:integer locked:integer photo:binary 

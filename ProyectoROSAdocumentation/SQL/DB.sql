@@ -14,7 +14,7 @@ insert into cities (name,coddane,created_at,updated_at) values ('Bogotá','11001
 insert into cities (name,coddane,created_at,updated_at) values ('Medellín','05001',current_date,current_date);
 commit;
 
-create table Locality (
+create table Localities(
 id integer,
 citys_id integer not null,
 name varchar(60) not null,

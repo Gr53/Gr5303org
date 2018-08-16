@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_16_141335) do
+ActiveRecord::Schema.define(version: 2018_08_16_142828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,7 +118,6 @@ ActiveRecord::Schema.define(version: 2018_08_16_141335) do
   add_foreign_key "incidents", "users", column: "users_id"
   add_foreign_key "neighborhoods", "localities", column: "localities_id"
   add_foreign_key "nets", "neighborhoods", column: "neighborhoods_id"
-  add_foreign_key "support_nets", "nets", column: "nets_id"
   add_foreign_key "users", "identification_types", column: "identification_types_id"
   add_foreign_key "users", "support_nets", column: "support_nets_id"
 end

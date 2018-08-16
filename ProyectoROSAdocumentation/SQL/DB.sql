@@ -3,12 +3,16 @@ create database CuadranteSeguro;
 'Base de datos para reto Calles sin delincuentes'
 use CuadranteSeguro;
 
-create table City(
+create table cities(
 id integer,
 name varchar(60) not null,
 coddane varchar(30) not null,
 primary key (id)
 );
+
+insert into cities (name,coddane,created_at,updated_at) values ('Bogotá','11001',current_date,current_date);
+insert into cities (name,coddane,created_at,updated_at) values ('Medellín','05001',current_date,current_date);
+commit;
 
 create table Locality (
 id integer,

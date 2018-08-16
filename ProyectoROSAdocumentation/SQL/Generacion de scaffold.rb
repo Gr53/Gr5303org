@@ -1,4 +1,4 @@
-rails g scaffold City name:string coddane:string
+rails g scaffold City name coddane
 rails g scaffold Locality cities:references name:string
 rails g scaffold Neighborhood localities:references name:string
 rails g scaffold Net neighborhoods:references name:string

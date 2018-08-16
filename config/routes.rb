@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :users
   resources :identification_types
   resources :support_nets
-  resources :nets
   resources :neighborhoods
   resources :localities
   resources :cities

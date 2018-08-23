@@ -1,3 +1,3 @@
 class IncidentType < ApplicationRecord
-  belongs_to :risklevels
+  belongs_to :risk_levels
 end

@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-  belongs_to :identificationtypes
-  belongs_to :supportnets
   has_secure_password
+
+  def self.from_token_request request
+  	username= request.params["auth"] && request.params["auth"]["username"]
+  	self.find_by username: username
+  end
 end

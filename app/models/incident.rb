@@ -1,4 +1,4 @@
 class Incident < ApplicationRecord
   belongs_to :users
-  belongs_to :incidenttypes
+  belongs_to :incident_types
 end

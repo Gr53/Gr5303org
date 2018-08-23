@@ -1,0 +1,7 @@
+{
+  "name": "FrontEnd_ROSA",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

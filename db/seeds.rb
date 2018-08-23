@@ -10,25 +10,7 @@
 	#:names, :surnames, :identificationtypes_id, :identificationnumber, :cellphonenumber
 	#, :username, :password, :password_digest, :supportnets_id, :active, :locked, :photo
 
-@identificationtypes_id=IdentificationType.find(1)
-@supportnets_id=SupportNet.find(1)
-
-@user=User.new({
-	names: 'Eduar Giovanni',
-	surnames: 'Romero Rubiano',
-	identification_types_id: IdentificationType.find(1), 
-	identificationnumber: '1019082510',
-	cellphonenumber: '3214312927',
-	username: 'edw536',
-	password:'Edwar536',
-	password_confirmation: 'Edwar536',
-	support_nets_id: SupportNet.find(1),
-	active: '0',
-	locked: '0',
-	photo: nil
-	})
-@user.save
-
+=begin
 @user=User.new({
 	names: 'Eduar Giovanni',
 	surnames: 'Romero Rubiano',
@@ -48,15 +30,18 @@
 
 
 @user=User.new({
-	names: 'Eduar Giovanni',
-	surnames: 'Romero Rubiano',
-	identificationnumber: '1019082510',
-	cellphonenumber: '3214312927',
-	username: 'edw536',
-	password:'Edwar536',
-	password_confirmation: 'Edwar536',
-	active: '0',
-	locked: '0'
-	})
+	names: "Jose Fernando",
+	surnames: "Galindo Suarez",
+	identification_types_id: 1, 
+	identificationnumber: "19407970",
+	cellphonenumber: "3103057128",
+	username: "FEGASU",
+	password:"FEGASU*",
+	password_confirmation: "FEGASU*",
+	support_nets_id: 1,
+	active: "0",
+	locked: "0"
+})
 
 @user.save
+=end

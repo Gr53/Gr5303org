@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angul
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { AlertController } from 'ionic-angular';
 import { HelloIonicPage } from '../hello-ionic/hello-ionic';
+import {Storage } from '@ionic/storage';
 
 
 /**
@@ -28,7 +29,8 @@ export class LoginPage {
               public navParams: NavParams,
               public menu: MenuController, 
               public authServiceProvider: AuthServiceProvider,
-              public alertCtl: AlertController) {
+              public alertCtl: AlertController,
+              private storage: Storage) {
   }
 
   ionViewDidLoad() {
@@ -44,7 +46,10 @@ export class LoginPage {
     this.authServiceProvider.postData(this.userData, "user_token").then((result) => {
       this.respouceData = result;
       console.log(this.respouceData);
-      localStorage.setItem('jwt', JSON.stringify(this.respouceData));
+      //this.storage.set('jwt2', JSON.stringify(this.respouceData));
+      this.storage.set('jwt2', this.respouceData["jwt"]);
+      localStorage.setItem('jwt', this.respouceData["jwt"]);
+      console.log("el token es"+localStorage.getItem("jwt"));
       this.navCtrl.push(HelloIonicPage); 
     }, (err) => {
       console.log("error ___________________")

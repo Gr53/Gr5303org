@@ -2,7 +2,8 @@
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 
-let apiUrl = 'http://localhost:3000/';
+//let apiUrl = 'http://localhost:3000/';
+let apiUrl = 'https://redoperativaseguridadaplicada.herokuapp.com/';
 
 /*
   Generated class for the AuthServiceProvider provider.

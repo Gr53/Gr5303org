@@ -13,11 +13,10 @@ export class HelloIonicPage {
 
   constructor(public menu: MenuController, private storage: Storage) {
     const data1= localStorage.getItem("jwt");
-    console.log("2. el token localStorage es "+ data1);
-    const data2= storage.get('jwt2').then((val) => { JSON.parse(val) });
+    console.log("1. el token localStorage es "+ data1);
+    const data2= storage.get("jwt2").then((val) => { val[0] });
     console.log("2. el token storage es "+ data2);
     this.userDetails = data1;
-    //console.log(this.userDetails);
   }
 
   ionViewWillEnter () { 

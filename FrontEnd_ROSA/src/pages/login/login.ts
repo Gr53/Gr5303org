@@ -19,11 +19,9 @@ import {Storage } from '@ionic/storage';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
+  
   respouceData: any;
   userData = { auth: {"username":"","password":""} };
-  //userData = {"username":"", "password":""};
-
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -32,6 +30,7 @@ export class LoginPage {
               public alertCtl: AlertController,
               private storage: Storage) {
   }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
@@ -43,23 +42,37 @@ export class LoginPage {
 
 
   login(){
-    this.authServiceProvider.postData(this.userData, "user_token").then((result) => {
-      this.respouceData = result;
-      console.log(this.respouceData);
-      //this.storage.set('jwt2', JSON.stringify(this.respouceData));
-      this.storage.set('jwt2', this.respouceData["jwt"]);
-      localStorage.setItem('jwt', this.respouceData["jwt"]);
-      console.log("el token es"+localStorage.getItem("jwt"));
-      this.navCtrl.push(HelloIonicPage); 
-    }, (err) => {
-      console.log("error ___________________")
+
+    if(this.userData.auth.username=="" || this.userData.auth.password=="")
+    {
+      console.log("username o password vacío")
       let alert = this.alertCtl.create({
-        title: 'Iniciar Sesión',
-        subTitle: 'No se pudo iniciar sesión, por favor intente mas tarde.',
+        title: 'Advertencia',
+        subTitle: 'No se proporcionaron las credenciales necesarias.',
         buttons: ['Dismiss']
       });
       alert.present();
-    });
+    }
+    else
+    {
+      this.authServiceProvider.postData(this.userData, "user_token").then((result) => {
+        this.respouceData = result;
+        console.log(this.respouceData);
+        //this.storage.set('jwt2', JSON.stringify(this.respouceData));
+        this.storage.set('jwt2', this.respouceData["jwt"]);
+        localStorage.setItem('jwt', this.respouceData["jwt"]);
+        console.log("el token es"+localStorage.getItem("jwt"));
+        this.navCtrl.setRoot(HelloIonicPage); 
+      }, (err) => {
+        console.log("error ___________________")
+        let alert = this.alertCtl.create({
+          title: 'Iniciar Sesión',
+          subTitle: 'No se pudo iniciar sesión, por favor intente mas tarde.',
+          buttons: ['Dismiss']
+        });
+        alert.present();
+      });
+    }
   }
 
 

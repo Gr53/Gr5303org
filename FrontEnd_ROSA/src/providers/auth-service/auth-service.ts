@@ -13,7 +13,7 @@ let apiUrl = 'https://redoperativaseguridadaplicada.herokuapp.com/';
 */
 @Injectable()
 export class AuthServiceProvider {
-
+ 
   constructor(public http: Http) {
     console.log('Hello AuthServiceProvider Provider');
   }
@@ -29,8 +29,18 @@ export class AuthServiceProvider {
     
     return new Promise((resolve, reject) =>{
         this.http.post(apiUrl+type, JSON.stringify(credentials), options).subscribe(res =>{
-          resolve(res.json());
+          console.log("entroooooooooo");
+          if(res.json().jwt){
+            resolve(res.json());
+            console.log("1");
+          }else{
+            reject("no se encontraron credenciales")
+            console.log("21321");
+          }
+
+          
         }), (err) => {
+          console.log("error");
           reject(err);
         }
     });

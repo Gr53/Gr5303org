@@ -57,11 +57,9 @@ export class LoginPage {
     {
       this.authServiceProvider.postData(this.userData, "user_token").then((result) => {
         this.respouceData = result;
-        console.log(this.respouceData);
-        //this.storage.set('jwt2', JSON.stringify(this.respouceData));
         this.storage.set('jwt2', this.respouceData["jwt"]);
         localStorage.setItem('jwt', this.respouceData["jwt"]);
-        console.log("el token es"+localStorage.getItem("jwt"));
+        console.log('Ok Login');
         this.navCtrl.setRoot(HelloIonicPage); 
       }, (err) => {
         console.log("error ___________________")

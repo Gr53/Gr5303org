@@ -1,6 +1,8 @@
 /*import { HttpClient } from '@angular/common/http';*/
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map'
+import { AlertController } from 'ionic-angular';
 
 //let apiUrl = 'http://localhost:3000/';
 let apiUrl = 'https://redoperativaseguridadaplicada.herokuapp.com/';
@@ -14,7 +16,7 @@ let apiUrl = 'https://redoperativaseguridadaplicada.herokuapp.com/';
 @Injectable()
 export class AuthServiceProvider {
  
-  constructor(public http: Http) {
+  constructor(public http: Http, public alertCtl: AlertController) {
     console.log('Hello AuthServiceProvider Provider');
   }
 
@@ -28,22 +30,21 @@ export class AuthServiceProvider {
     let options = new RequestOptions({ headers: headers });
     
     return new Promise((resolve, reject) =>{
-        this.http.post(apiUrl+type, JSON.stringify(credentials), options).subscribe(res =>{
-          console.log("entroooooooooo");
-          if(res.json().jwt){
-            resolve(res.json());
-            console.log("1");
-          }else{
-            reject("no se encontraron credenciales")
-            console.log("21321");
-          }
-
-          
-        }), (err) => {
-          console.log("error");
-          reject(err);
-        }
-    });
+        this.http.post(apiUrl+type, JSON.stringify(credentials), options)
+        .map(res => resolve(res.json()))
+        .subscribe(
+          data => console.log('Ok data: '+ data),
+          err => {
+                    console.log('Error al inicial sesion: '+ err);
+                    let alert = this.alertCtl.create({
+                    title: 'Error al Iniciar Sesión',
+                    subTitle: 'No se pudo iniciar sesión, verifique sus credenciales o intente mas tarde.',
+                    buttons: ['Dismiss']
+                    });
+                    alert.present();
+                 }         
+        );
+      });
   }
 
 

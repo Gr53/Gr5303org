@@ -14,28 +14,47 @@
 
 
 <ion-content padding>
-    <img src="/assets/imgs/logo.jpg" class="img-logo" alt="">
+    <img src="/assets/imgs/User Registro.png" class="img-logo center-text" alt="">
     <h1>Formulario de registro</h1>  
 
     <div class="content-log">
         <ion-list>
             <ion-item>
-              <ion-label floating>Nombre</ion-label>
-              <ion-input type="text" [(ngModel)]="userData.name"></ion-input>
+              <ion-label floating>Nombres</ion-label>
+              <ion-input type="text" [(ngModel)]="userData.names"></ion-input>
             </ion-item>
             <ion-item>
-                <ion-label floating>Username</ion-label>
-                <ion-input type="text" [(ngModel)]="userData.username"></ion-input>
-              </ion-item>
+              <ion-label floating>Apellidos</ion-label>
+              <ion-input type="text" [(ngModel)]="userData.surnames"></ion-input>
+            </ion-item>
             <ion-item>
-              <ion-label floating>Password</ion-label>
+              <ion-label floating>Tipo de idetificación</ion-label>
+              <ion-input type="text" [(ngModel)]="userData.identification_types_id"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>No. de idetificación</ion-label>
+              <ion-input type="text" [(ngModel)]="userData.identificationnumber"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>No. Celular</ion-label>
+              <ion-input type="text" [(ngModel)]="userData.cellphonenumber"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Nombre de usuario</ion-label>
+                <ion-input type="text" [(ngModel)]="userData.username"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Contraseña</ion-label>
               <ion-input type="password" [(ngModel)]="userData.password"></ion-input>
             </ion-item>
             <ion-item>
-              <ion-label floating>Confirmar Password</ion-label>
+              <ion-label floating>Confirmar contraseña</ion-label>
               <ion-input type="password" [(ngModel)]="userData.password_confirmation"></ion-input>
             </ion-item>      
-      
+            <ion-item>
+              <ion-label floating>Seleecione red de apoyo</ion-label>
+              <ion-input type="text" [(ngModel)]="userData.support_nets_id"></ion-input>
+            </ion-item> 
        </ion-list>
    
        <button ion-button block (click)="SignUp()">Registrarse</button>

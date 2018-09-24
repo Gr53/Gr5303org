@@ -43,7 +43,7 @@ export class LoginPage {
 
   login(){
 
-    if(this.userData.auth.username=="" || this.userData.auth.password=="")
+    if(this.userData.auth.username==="" || this.userData.auth.password==="")
     {
       console.log("username o password vacío")
       let alert = this.alertCtl.create({

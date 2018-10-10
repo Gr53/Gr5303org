@@ -4,6 +4,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { AlertController } from 'ionic-angular';
 import { HelloIonicPage } from '../hello-ionic/hello-ionic';
 import {Storage } from '@ionic/storage';
+import {SignUpPage} from '../sign-up/sign-up';
 
 
 /**
@@ -59,6 +60,7 @@ export class LoginPage {
         this.respouceData = result;
         this.storage.set('jwt2', this.respouceData["jwt"]);
         localStorage.setItem('jwt', this.respouceData["jwt"]);
+        localStorage.setItem('v_username', this.userData.auth.username);
         console.log('Ok Login');
         this.navCtrl.setRoot(HelloIonicPage); 
       }, (err) => {
@@ -71,6 +73,10 @@ export class LoginPage {
         alert.present();
       });
     }
+  }
+
+  goSignUp(){
+    this.navCtrl.push(SignUpPage);
   }
 
 

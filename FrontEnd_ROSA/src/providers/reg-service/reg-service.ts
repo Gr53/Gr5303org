@@ -37,7 +37,7 @@ export class RegServiceProvider {
                     console.log('Error al registrar usuario: '+ err);
                     let alert = this.alertCtl.create({
                     title: 'Error al registrar usuario',
-                    subTitle: 'No se pudo rtegistrar el usuario, verifique los datos diligenciados o intente mas tarde.',
+                    subTitle: 'No se pudo registrar el usuario, verifique los datos diligenciados o intente mas tarde.',
                     buttons: ['Dismiss']
                     });
                     alert.present();

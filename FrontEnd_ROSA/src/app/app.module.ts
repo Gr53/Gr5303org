@@ -18,6 +18,9 @@ import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';  
 import { OneSignal } from '@ionic-native/onesignal';
 import { RegServiceProvider } from '../providers/reg-service/reg-service';
+import { ConfigurationPage } from '../pages/configuration/configuration';
+import { InsecurityeventPage } from '../pages/insecurityevent/insecurityevent';
+import { MapPage } from '../pages/map/map';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { RegServiceProvider } from '../providers/reg-service/reg-service';
     ListPage,
     WelcomePage,
     SignUpPage,
-    LoginPage
+    LoginPage,
+    ConfigurationPage,
+    InsecurityeventPage,
+    MapPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,10 @@ import { RegServiceProvider } from '../providers/reg-service/reg-service';
     ListPage,
     WelcomePage,
     SignUpPage,
-    LoginPage
+    LoginPage,
+    ConfigurationPage,
+    InsecurityeventPage,
+    MapPage
   ],
   providers: [
     StatusBar,

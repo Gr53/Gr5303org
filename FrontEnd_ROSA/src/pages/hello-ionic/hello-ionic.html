@@ -3,12 +3,25 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Hello Ionic</ion-title>
+    <ion-title>Menu Principal</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-  <h2>Bienvenido a Red Operativa de Seguridad Aplicada</h2>
-  <h3>{{userDetails}}</h3>
+  <h4>Bienvenid@,</h4>
+  <h5>A continuación, seleccione la opción de menú requerida</h5>
+  <h6 style="display:none">{{userDetails}}</h6>
+
+  <ion-list>
+    <ion-item>
+      <img src="../../assets/imgs/UserMenu/alert.png" class="img-menu" (click)="menuClic(1)"/>
+      <img src="../../assets/imgs/UserMenu/configuration.png" class="img-menu" (click)="menuClic(2)"/>
+    </ion-item>
+    <ion-item>
+      <img src="../../assets/imgs/UserMenu/incident2.png" class="img-menu" (click)="menuClic(3)"/>
+      <img src="../../assets/imgs/UserMenu/Maps2.png" class="img-menu" (click)="menuClic(4)"/>
+    </ion-item>
+  </ion-list>
+
 </ion-content>

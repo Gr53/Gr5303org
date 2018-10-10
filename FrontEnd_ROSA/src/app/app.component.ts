@@ -1,17 +1,16 @@
 import { Component, ViewChild } from '@angular/core';
-
 import { Platform, MenuController, Nav, AlertController } from 'ionic-angular';
-
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OneSignal } from '@ionic-native/onesignal';
 
+import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { WelcomePage } from '../pages/welcome/welcome';
-import { SignUpPage } from '../pages/sign-up/sign-up';
 import { LoginPage } from '../pages/login/login';
+import { ConfigurationPage } from '../pages/configuration/configuration';
+import { InsecurityeventPage } from '../pages/insecurityevent/insecurityevent';
+import { MapPage } from '../pages/map/map';
 
 
 @Component({
@@ -35,10 +34,11 @@ export class MyApp {
     this.initializeApp();
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage },
-      { title: 'Iniciar sesión', component: LoginPage },
-      { title: 'Registrarse', component: SignUpPage }
+      { title: 'Menú principal', component: HelloIonicPage },
+      { title: 'Configuración', component: ConfigurationPage },
+      { title: 'Registrar Evento de Inseguridad', component: InsecurityeventPage },
+      { title: 'Navegar', component: MapPage },
+      { title: 'Cerrar Sesión', component: LoginPage }
     ];
   }
 

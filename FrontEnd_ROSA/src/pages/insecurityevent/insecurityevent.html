@@ -1,0 +1,64 @@
+<!--
+  Generated template for the InsecurityeventPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Registro de Evento de Inseguridad</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="FormInsecurityEvent" (ngSubmit)="saveData()">
+    <ion-list>
+      <ion-item>
+          <ion-icon name="person" item-start></ion-icon>
+          <ion-label stacked>Nombres:</ion-label>
+          <ion-input formControlName="username" type="text" value="{{userDetails}}" disabled="true"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="locate" item-start></ion-icon>
+          <ion-input formControlName="location" type="text" placeholder="Capture la ubicación" disabled="true"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="calendar" item-start></ion-icon>
+          <ion-label stacked>Fecha</ion-label>
+          <ion-datetime displayFormat="MMM DD, h:mm A" formControlName="date" [(ngModel)]="myDate" disable="true"></ion-datetime>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="alert" item-start></ion-icon>
+          <ion-label stacked>Tipo de incidente</ion-label>
+          <ion-select formControlName="incidenttype">
+              <ion-option value="1">Prueba1</ion-option>
+              <ion-option value="2">Prueba2</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="car" item-start></ion-icon>
+          <ion-label stacked>¿Requiere ambulancia?</ion-label>
+          <ion-checkbox formControlName="nambulance" checked="false"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="pulse" item-start></ion-icon>
+          <ion-label stacked>¿Presenta Muertos?</ion-label>
+          <ion-checkbox formControlName="pdeath" checked="false"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="body" item-start></ion-icon>
+          <ion-label stacked>¿Requiere Policía?</ion-label>
+          <ion-checkbox formControlName="npolice" checked="false"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="list" item-start></ion-icon>
+          <ion-label stacked>Prioridad</ion-label>
+          <ion-select formControlName="priority">
+              <ion-option value="1">1</ion-option>
+              <ion-option value="2">2</ion-option>
+              <ion-option value="3">3</ion-option>
+          </ion-select>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
